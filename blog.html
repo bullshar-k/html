@@ -33,11 +33,17 @@
 </div>
 
 
+<body>
 <div class="card">
-  <h3>Self hosted monero node <span class="tag">Coming soon</span></h3>
-  <p> I made a debain VM on my server with 2 cores, 10Gb ram, 128Gb storage. It's currently syncing, 95% of blocks as of ~19 hours in. Will update when done.
+  <h3>Self hosted monero node <span class="tag">24 Jul 2026</span></h3>
+  <p> Okay. Not too bad overall, just took a long time. Installed debian, installed git, tmux, and some other essentials, then obviously monero. From there I ran <span style="color: #0f0;"><b>monerod --data-dir ~/.bitmonero --prune-blockchain</b></span>. 
+    Pruned = ~60GB, Normal = ~120GB, so, obvious choice. It then proceeded to sync for 2 days. Now the newest blocks write first and have less data, so you get 35% done in an hour, then the last 65% in 47 hours, be aware.
+    From there after it synced I ran tmux and <span style="color: #0f0;"><b>monerod --rpc-bind-ip=0.0.0.0 --rpc-bind-port=18081 --confirm-external-bind</b></span>. So this binds all IPs to 18081, the one a wallet needs to use a node as its daemon. Then on my main 
+    PC I ran <span style="color: #0f0;"><b>monero-wallet-cli --wallet /wallet/address/path --daemon-address 192.168.1.67:18081 --trusted-daemon</b></span>. This starts my wallet and sets the daemon to my server on the correct port. That was all she wrote, took a lot 
+    of time but it was only 5-10 commands which is awesome. My XMR that was sitting in the blockchain hit my wallet instantly.
   </p>
 </div>
+
 
 <div class="card">
   <h3>OpenRC vs SystemD <span class="tag">21 Jul 2026</span></h3>
